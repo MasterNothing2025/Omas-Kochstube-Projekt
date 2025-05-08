@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
+	<head>
+		<meta charset="utf-8">
+    	<title>Oma's Kochstube - Home</title>
+		<link rel="stylesheet" href="formate.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximal scale=2.0 user-scalable=yes">
+  	</head>
 	<p>
 		<?php
 		session_start();
@@ -67,12 +73,7 @@
 		?>
 		
 	</p>
-  	<head>
-		<meta charset="utf-8">
-    	<title>Oma's Kochstube - Home</title>
-		<link rel="stylesheet" href="formate.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximal scale=2.0 user-scalable=yes">
-  	</head>
+
 
 	<body>
 		<img src="./Oma's Kochstube Logo.png" alt = "Logo"><h1>Oma's Kochstube</h1> <blockquote>Jeder kann Kochen</blockquote>
@@ -124,7 +125,7 @@
 	</article>
 			<main class="content">
 				
-				<text>In dieser Saison gibt es nichts besseres als mein super Rezept aus meinen <a href=".Top3.html">Top 3 Rezepten</a></text>
+				<span>In dieser Saison gibt es nichts besseres als mein super Rezept aus meinen <a href=".Top3.html">Top 3 Rezepten</a></span>
 				<section>
 					<h3>ZUTATEN</h3>
 					<ul>
