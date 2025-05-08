@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>Oma's Kochstube - Kontakt</title>
+		<link rel="stylesheet" href="formate.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximal scale=2.0 user-scalable=yes">
+  	</head>
+
+	<form class="logoutbtn" action="index.php" id="logoutbtn">
+		<button type="submit" class="logoutbtn">Log Out</button>
+	</form>
+
+	<body>
+		<img src="./Oma's Kochstube Logo.png" alt = "Logo"><h1>Oma's Kochstube</h1><blockquote>Jeder kann Kochen</blockquote>
+		<header>
+			<nav>
+				<table>
+					<tr>
+						<th><a href="index.php">Home</a></th>
+						<th><a href="./Top3.html">TOP 3 Rezepte</a></th>
+						<th><a href="./Kreatives.html">Kreatives für Zwischendurch</a></th>
+						<th class="cell-highlight"><a href="./Kontakt_impressum.html">Kontakt & Impressum</a></th>						
+					</tr>
+				</table>
+			</nav>
+		</header>
+		<hr>
+		
+		<form class="container" action="login.php">
+			<button type="submit" class="login">Log In</button>
+		</form>
+			
+		<main>
+			<article class="header">
+				<strong>Achtung! Neue Rufnummer!</strong>
+			</article>
+			<div id="article">
+				<main class="content">
+					<Text>Beachte, die alte Rufnummer ist nicht mehr gültig: </Text><s>0118 999 881 999 119 725 3</s>
+					<em>Anmerkung: Die Nummer wird jetzt für (Falschinformation->)den Rettungsdienst in England benutzt.</em>
+				</main>
+			</div>
+			<h2 class = "header">Kontaktformular</h2>
+			<main class="content">
+			<div class="container">
+				<form action="index.php" method="post">
+			  
+				  	<label for="vorname">Vorname</label>
+				  	<input type="text" id="vorname" name="vorname" placeholder="Vorname">
+			  
+				  	<label for="nachname">Nachname</label>
+				  	<input type="text" id="nachname" name="nachname" placeholder="Nachname">
+			  
+				  	<label for="inhalt">Inhalt</label>
+				  	<textarea id="inhalt" name="inhalt" placeholder="Ihr Text" style="height:200px"></textarea>
+			  
+				  	<input type="submit" value="Absenden">
+			  
+				</form>
+			  </div>
+			</main>
+		</main>
+		<footer>
+			(c)2024 Carl & Alexander
+		</footer>
+	</body>	
+</html>

@@ -1,0 +1,260 @@
+body {
+	margin: 10px auto;
+	max-width: 60em;
+	font-family: sans-serif;
+	color: #333333;
+}
+
+header,
+nav,
+main,
+aside,
+footer {
+	border-radius: 0px 0.5em 0.5em;
+	border: 1px solid;
+	padding: 10px;
+	margin: 10px;
+}
+
+.header {
+	border-radius: 0px 0.5em 0.5em;
+	border: 1px solid;
+	padding: 10px;
+	margin: 10px;
+}
+.content {
+	display: block;
+	background: #a7c2f9;
+	border-color: #8a9da8;
+}
+
+header {
+	background: #dd7575;
+	border-color: #000000;
+}
+
+blockquote {
+	font: 14px/20px italic Times, serif;
+	padding: 8px;
+	background-color: #faebbc;
+	border-top: 1px solid #e1cc89;
+	border-bottom: 1px solid #e1cc89;
+	margin: 5px;
+	background-position: top left;
+	background-repeat: no-repeat;
+	text-indent: 23px;
+}
+
+nav {
+	background: #ffffff;
+	border-color: #000000;
+}
+
+h2 {
+	background: #ffb4b4;
+	border-color: #000000;
+}
+
+th, td {
+	border: 1px solid black;
+	padding: 8px;
+}
+
+.cell-highlight {
+	background-color: gold;
+	font-weight: bold;
+  }
+
+
+section {
+	display: block;
+	/* für IE */
+	
+	background: #a7c2f9;
+	border-color: #8a9da8;
+}
+
+
+article {
+	background: #ffb4b4;
+	border-color: #000000;
+}
+
+
+aside {
+	background: #ebf5d7;
+	border-color: #8db243;
+}
+
+footer {
+	background: #e4ebf2;
+	border-color: #8a9da8;
+}
+
+ /* Kontaktformular */
+ input[type=text], select, textarea {
+	width: 100%; /* Full width */
+	padding: 12px; /* Some padding */ 
+	border: 1px solid #ccc; /* Gray border */
+	border-radius: 4px; /* Rounded borders */
+	box-sizing: border-box; /* Make sure that padding and width stays in place */
+	margin-top: 6px; /* Add a top margin */
+	margin-bottom: 16px; /* Bottom margin */
+	resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+  } 
+   /* Bordered form */
+form {
+	border: 3px solid #f1f1f1;
+  }
+  
+  /* Full-width inputs */
+  input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+	background-color: #04AA6D;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 50%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+	opacity: 0.8;
+  }
+  
+  /* Extra style for the cancel button (red) */
+  .cancelbtn {
+	width: auto;
+	padding: 14px 20px;
+	background-color: #f44336;
+  }
+  
+  /* Add padding to containers */
+  .container {
+	padding: 16px;
+  }
+
+
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.logoutbtn {
+    position: fixed;
+    top: 10px; /* Abstand von oben */
+    right: 10px; /* Abstand von links */
+	width: 25%;
+	opacity: 500%;
+	z-index: 999;
+}
+
+#body {
+	float: right;
+	margin-right: 1em;
+  }
+  
+  @media (min-width: 30em) { 
+	/* mehrspaltiges Layout für breitere Bildschirme */ 
+	#body {
+	  float: right;
+	  width: 9em;
+	}
+  }
+
+.hidden {
+	display: none;
+}
+
+.modal {
+	display: none; /* Standardmäßig versteckt */
+	position: fixed; /* Bleibt an einer festen Position */
+	z-index: 1; /* Über anderen Inhalten */
+	left: 0;
+	top: 0;
+	width: 100%; /* Volle Breite */
+	height: 100%; /* Volle Höhe */
+	overflow: auto; /* Scrollen, wenn nötig */
+	background-color: rgb(0,0,0); /* Fallback-Farbe */
+	background-color: rgba(0,0,0,0.4); /* Schwarz mit Transparenz */
+}
+
+/* Stil für den Inhalt des Modals */
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% vom oberen Rand und zentriert */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%; /* Breite des Modals */
+}
+
+/* Stil für den Schließen-Button */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
