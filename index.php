@@ -3,22 +3,69 @@
 	<p>
 		<?php
 		session_start();
+
+			if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+			// Überprüfe, ob die Anfrage eine POST-Anfrage ist
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				// Benutzereingaben erfassen und validieren
+				$username = isset($_POST['usrname']) ? trim($_POST['usrname']) : '';
+				$password = isset($_POST['passw']) ? trim($_POST['passw']) : '';
 		?>
 	</p>
+		<form action="logindata.php" method="post">
+		
+		    <!-- der login Modal -->
+		    <div id="id01" class="modals">
+
+		        <!-- Modal Content -->
+		        <form class="modal-content animate" action="index.php">
+		            <div class="container">
+		                <label for="usrname" ><b>Username</b></label>
+		                <input type="text" placeholder="Enter Username" name="usrname" id="usrname" required>
+
+		                <label for="passw"><b>Password</b></label>
+		                <input type="password" placeholder="Enter Password" name="passw" required>
+        			</div>
+        			<div class="container">
+            			<button type="submit" class="loginbtn" id="loginbtn">Login</button>
+            			<button type="button" onclick="window.location.href='index.php';" class="cancelbtn">Abbrechen</button>
+        			</div>
+        		</form>
+      		</div> 
+		</form>
 	<p>
 		<?php
-		if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$users = $_POST['usrname'];
-				$passwort = $_POST['passw'];
-			?>
-				<form class="logoutbtn" action="index.php" id="logoutbtn">
-					<button type="submit" class="logoutbtn">Log Out</button>
-				</form>
-			<?php
-			} 
-		} 
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		    $users = $_POST['usrname'];
+		    $passwort = $_POST['passw'];
+		    if ($users == 'usrname' && $passwort == 'passw') {
+		        $_SESSION['loggedin'] = true;
+		        $_SESSION['usrname'] = $users; 
+		    } else {
+		        echo "Ungültiger Benutzername oder Passwort.";
+		    }
 		?>
+	</p>
+		<form action="signup.php" method="post" class="container">
+		    <button type="submit" class="signup">Sign Up</button>
+		</form>
+	<p>
+		<?php
+			} else {
+				echo'keine post anfrage';
+			}
+		} else {
+		?>
+	</p>
+			<form class="logoutbtn" action="index.php" method="POST" id="logoutbtn">
+				<button type="submit" class="logoutbtn">Log Out</button>
+			</form>
+	<p>
+			<?php
+		}
+			}
+		?>
+		
 	</p>
   	<head>
 		<meta charset="utf-8">
@@ -46,10 +93,6 @@
 				<q>Ideenreiche Rezepte für jeden Zweck!</q>
 			</hgroup>
 		</article>
-		
-		<form class="container" action="login.php" id="loginbtn1">
-			<button type="submit" class="login">Log In</button>
-		</form>
 
 		<div id="article">
 			<main class="content">
