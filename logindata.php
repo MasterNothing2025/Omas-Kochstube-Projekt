@@ -1,41 +1,29 @@
 <?php
-include 'db.php'; // Datenbankverbindung einfügen
+include 'db.php';
 session_start();
 
+    $users = isset($_SESSION['usrname']) ? trim($_SESSION['usrname']) : '';
+    $passwort = isset($_SESSION['passw']) ? trim($_SESSION['passw']) : '';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $users = $_POST['usrname'];
-    $passwort = $_POST['passw'];
-
-    // SQL-Statement vorbereiten
-    $stmt = $conn->prepare("SELECT passwort FROM benutzer WHERE users = ?");
-    $stmt->bind_param("s", $users);
+    $hashedPasswort = trim(hash('sha256', $password));
+    $sql = "SELECT passwort, users FROM benutzer WHERE users = ? AND passwort = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $users, $hashedPasswort); 
     $stmt->execute();
-    $stmt->store_result();
+    $result = $stmt->get_result();
 
-    // Überprüfen, ob der Benutzer existiert
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($hashedPasswort);
-        $stmt->fetch();
-
-        // Passwort überprüfen
-        if (password_verify($passwort, $hashedPasswort)) {
-            echo "Login erfolgreich!";
-            header("Location: index.php");
-        } else {
-            echo "Login fehlgeschlagen";
-        }
+    if ($result->num_rows > 0) {
+        echo "Login erfolgreich!
+        <a href='./index.php'>Zur Homepage</a>";
+        $_SESSION['loggedin'] = true;
+        $_SESSION['usrname'] = $users;
+        exit();
     } else {
-        echo "Login fehlgeschlagen";
-    }
-
-    (password_verify($passwort, $hashedPasswort)); {
-        $_SESSION['users'] = $users; 
-        $_SESSION['loggedin'] = true; 
-        header("Location: index.php");
+        echo "Login fehleschlagen 
+        $hashedPasswort
+        <a href='./login.php'>Erneut versuchen</a>";
     }
 
     $stmt->close();
-}
-$conn->close();
-?>
+    $conn->close();
+    ?>

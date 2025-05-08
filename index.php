@@ -6,75 +6,7 @@
 		<link rel="stylesheet" href="formate.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximal scale=2.0 user-scalable=yes">
   	</head>
-	<p>
-		<?php
-		session_start();
-
-			if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-			// Überprüfe, ob die Anfrage eine POST-Anfrage ist
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				// Benutzereingaben erfassen und validieren
-				$username = isset($_POST['usrname']) ? trim($_POST['usrname']) : '';
-				$password = isset($_POST['passw']) ? trim($_POST['passw']) : '';
-		?>
-	</p>
-		<form action="logindata.php" method="post">
-		
-		    <!-- der login Modal -->
-		    <div id="id01" class="modals">
-
-		        <!-- Modal Content -->
-		        <form class="modal-content animate" action="index.php">
-		            <div class="container">
-		                <label for="usrname" ><b>Username</b></label>
-		                <input type="text" placeholder="Enter Username" name="usrname" id="usrname" required>
-
-		                <label for="passw"><b>Password</b></label>
-		                <input type="password" placeholder="Enter Password" name="passw" required>
-        			</div>
-        			<div class="container">
-            			<button type="submit" class="loginbtn" id="loginbtn">Login</button>
-            			<button type="button" onclick="window.location.href='index.php';" class="cancelbtn">Abbrechen</button>
-        			</div>
-        		</form>
-      		</div> 
-		</form>
-	<p>
-		<?php
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		    $users = $_POST['usrname'];
-		    $passwort = $_POST['passw'];
-		    if ($users == 'usrname' && $passwort == 'passw') {
-		        $_SESSION['loggedin'] = true;
-		        $_SESSION['usrname'] = $users; 
-		    } else {
-		        echo "Ungültiger Benutzername oder Passwort.";
-		    }
-		?>
-	</p>
-		<form action="signup.php" method="post" class="container">
-		    <button type="submit" class="signup">Sign Up</button>
-		</form>
-	<p>
-		<?php
-			} else {
-				echo'keine post anfrage';
-			}
-		} else {
-		?>
-	</p>
-			<form class="logoutbtn" action="index.php" method="POST" id="logoutbtn">
-				<button type="submit" class="logoutbtn">Log Out</button>
-			</form>
-	<p>
-			<?php
-		}
-			}
-		?>
-		
-	</p>
-
-
+	
 	<body>
 		<img src="./Oma's Kochstube Logo.png" alt = "Logo"><h1>Oma's Kochstube</h1> <blockquote>Jeder kann Kochen</blockquote>
 			<nav>
@@ -94,7 +26,24 @@
 				<q>Ideenreiche Rezepte für jeden Zweck!</q>
 			</hgroup>
 		</article>
+		<p>
+		<?php
+		session_start();
 
+			if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {}
+			// Überprüfe, ob die Anfrage eine POST-Anfrage ist
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {}
+				// Benutzereingaben erfassen und validieren
+				$users = isset($_SESSION['usrname']) ? trim($_SESSION['usrname']) : '';
+				$password = isset($_SESSION['passw']) ? trim($_SESSION['passw']) : '';
+		?>
+	</p>
+		<form class="logoutbtn" action="index.php" method="GET" id="logoutbtn">
+			<button type="submit" class="logoutbtn">Log Out</button>
+		</form>
+		<form class="container" action="login.php" id="loginbtn1" method="POST">
+			<button type="submit" class="login">Log In</button>
+		</form>
 		<div id="article">
 			<main class="content">
 				<p><h4>Ihr wollt euren Liebsten ein schönes Essen bescheren, habt aber keine Ahnung, was ihr machen wollt?</h4></p>

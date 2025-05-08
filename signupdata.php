@@ -1,6 +1,6 @@
 <?php
 include 'db.php'; 
-
+session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $users = $_POST['usrname'];
@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $passwortRepeat = $_POST['passw-repeat'];
 
     // Passwort hashen
-    $hashedPasswort = password_hash($passwort, PASSWORD_DEFAULT);
+    $hashedPasswort = hash('sha256', $password);
 
     if (empty($email) || empty($users) || empty($passwort)) {
         die("Alle Felder müssen ausgefüllt werden.");
