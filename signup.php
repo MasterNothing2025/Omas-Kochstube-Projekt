@@ -50,7 +50,7 @@ session_start();
            	}
        	</script>
        	<div class="clearfix">
-       	    <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel/already signed up</button>
+       	    <button type="button" onclick="window.location.href='index.php'" class="cancelbtn">Cancel/already signed up</button>
        	    <button type="submit" class="signupbtn" onclick="passnav()">Sign Up</button>
        	</div>
    	</div>
