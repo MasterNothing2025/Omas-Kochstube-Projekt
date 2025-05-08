@@ -7,6 +7,7 @@
 </head>
 <?php
 session_start();
+
 ?>
 <form action="logindata.php" method="post">
 
@@ -29,6 +30,14 @@ session_start();
         </form>
       </div> 
 </form>
+<?php
+    if ($users == 'usrname' && $passwort == 'passw') {
+        $_SESSION['loggedin'] = true;
+        $_SESSION['usrname'] = $users; 
+    } else {
+        echo "Ungültiger Benutzername oder Passwort.";
+    }
+?>
 <form action="signup.php" method="post" class="container">
     <button type="submit" class="signup">Sign Up</button>
 </form>

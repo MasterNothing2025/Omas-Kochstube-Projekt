@@ -7,22 +7,17 @@
 	</p>
 	<p>
 		<?php
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			$users = $_POST['usrname'];
-			$passwort = $_POST['passw'];
-		
-			if ($users == 'usrname' && $passwort == 'passw') {
-				$_SESSION['loggedin'] = true;
-				$_SESSION['usrname'] = $users; 
-			} else {
-				echo "Ungültiger Benutzername oder Passwort.";
-			}
-		?>
-			<form class="logoutbtn" action="index.php" id="logoutbtn">
-				<button type="submit" class="logoutbtn">Log Out</button>
-			</form>
-		<?php
-		}
+		if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				$users = $_POST['usrname'];
+				$passwort = $_POST['passw'];
+			?>
+				<form class="logoutbtn" action="index.php" id="logoutbtn">
+					<button type="submit" class="logoutbtn">Log Out</button>
+				</form>
+			<?php
+			} 
+		} 
 		?>
 	</p>
   	<head>
