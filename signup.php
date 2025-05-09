@@ -6,8 +6,8 @@
 </head>
 <?php 
 session_start();
-$users = isset($_SESSION['usrname']) ? $_SESSION['usrname'] : '';
-$passwort = isset($_SESSION['passw']) ? $_SESSION['passw'] : '';
+$username = isset($_SESSION['usrname']) ? $_SESSION['usrname'] : '';
+$HashedPasswort = isset($_SESSION['passw']) ? $_SESSION['passw'] : '';
 ?>
 <!-- The Modal (contains the Sign Up form) -->
 <div id="id02" class="modals">

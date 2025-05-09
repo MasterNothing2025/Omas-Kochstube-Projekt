@@ -34,8 +34,8 @@
 			// Überprüfe, ob die Anfrage eine POST-Anfrage ist
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {}
 				// Benutzereingaben erfassen und validieren
-				$users = isset($_SESSION['usrname']) ? trim($_SESSION['usrname']) : '';
-				$password = isset($_SESSION['passw']) ? trim($_SESSION['passw']) : '';
+				$username = isset($_SESSION['usrname']) ? trim($_SESSION['usrname']) : '';
+				$hashedPasswort = isset($_SESSION['passw']) ? trim($_SESSION['passw']) : '';
 		?>
 	</p>
 		<form class="logoutbtn" action="index.php" method="GET" id="logoutbtn">

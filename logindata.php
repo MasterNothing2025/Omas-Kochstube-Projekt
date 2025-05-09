@@ -2,28 +2,34 @@
 include 'db.php';
 session_start();
 
-    $users = isset($_SESSION['usrname']) ? trim($_SESSION['usrname']) : '';
-    $passwort = isset($_SESSION['passw']) ? trim($_SESSION['passw']) : '';
+$username = isset($_SESSION['usrname']) ? trim($_SESSION['usrname']) : '';
+$hashedPasswort = isset($_SESSION['passw']) ? trim($_SESSION['passw']) : '';
 
-    $hashedPasswort = trim(hash('sha256', $password));
-    $sql = "SELECT passwort, users FROM benutzer WHERE users = ? AND passwort = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $users, $hashedPasswort); 
-    $stmt->execute();
-    $result = $stmt->get_result();
+// SQL-Abfrage zur Überprüfung des Benutzers
+$sql = "SELECT users, passwort FROM benutzer WHERE users = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $username, $hashedPasswort); 
+$stmt->execute();
+$result = $stmt->get_result();
+var_dump($_SESSION);
 
-    if ($result->num_rows > 0) {
-        echo "Login erfolgreich!
-        <a href='./index.php'>Zur Homepage</a>";
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    // Passwort überprüfen
+    if (password_verify($passwort, $row['passwort'])) {
+        // Login erfolgreich
         $_SESSION['loggedin'] = true;
-        $_SESSION['usrname'] = $users;
-        exit();
+        $_SESSION['usrname'] = $username;
+        echo "Login erfolgreich! <a href='./index.php'>Zur Homepage</a>";
     } else {
-        echo "Login fehleschlagen 
-        $hashedPasswort
-        <a href='./login.php'>Erneut versuchen</a>";
+        // Passwort ist falsch
+        echo "Login fehlgeschlagen. E<a href='./login.php'>rneut versuchen</a>";
     }
+} else {
+    // Benutzer existiert nicht
+    echo "Login fehlgeschlagen. <a href='./login.php'>Erneut versuche</a>n";
+}
 
-    $stmt->close();
-    $conn->close();
-    ?>
+$stmt->close();
+$conn->close();
+?>

@@ -23,6 +23,12 @@ session_start();
             </div>
       </div> 
 </form>
+<?php 
+    $username = 'usrname';
+    $hashedPasswort = hash('sha256', $passwort);
+    $username = isset($_SESSION['usrname']) ? trim($_SESSION['usrname']) : '';
+    $hashedPasswort = isset($_SESSION['passw']) ? trim($_SESSION['passw']) : '';
+?>
 <form action="signup.php" method="post" class="container">
     <button type="submit" class="signup">Sign Up</button>
 </form>

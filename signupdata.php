@@ -3,20 +3,21 @@ include 'db.php';
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
-    $users = $_POST['usrname'];
+    $username = $_POST['usrname'];
     $passwort = $_POST['passw'];
     $passwortRepeat = $_POST['passw-repeat'];
 
     // Passwort hashen
-    $hashedPasswort = hash('sha256', $password);
+    $hashedPasswort = hash('sha256', $passwort) = $_POST['hashpassw'];
 
-    if (empty($email) || empty($users) || empty($passwort)) {
+    if (empty($email) || empty($username) || empty($passwort)) {
         die("Alle Felder müssen ausgefüllt werden.");
     }
     
     // SQL-Statement vorbereiten
-    $stmt = $conn->prepare("INSERT INTO benutzer (email, users, passwort) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $email, $users, $hashedPasswort);
+    $sql = "INSERT INTO benutzer (email, users, passwort) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $email, $username, $hashedPasswort);
 
     // Ausführen und überprüfen, ob es erfolgreich war
     if ($stmt->execute()) {
