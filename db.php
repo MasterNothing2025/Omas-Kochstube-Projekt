@@ -1,4 +1,5 @@
 <?php
+session_start();
 $servername = "localhost:3306"; // oder Ihre Serveradresse
 $username = "root2"; // Ihr Datenbankbenutzername
 $password = "Blitzmerker#2025!"; // Ihr Datenbankpasswort

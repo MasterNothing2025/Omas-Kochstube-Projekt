@@ -35,6 +35,7 @@ session_start();
     if(!empty($_SESSION["userid"])) {
         echo "umleitung";
         header("Location:index.php");
+        exit();
     }
 
     $passwort = 'passw';

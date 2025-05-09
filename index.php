@@ -29,14 +29,19 @@
 		
 		<?php
 		session_start();
+		if (isset($_SESSION['userid'])) {
+			// Benutzer ist eingeloggt, Logout-Button anzeigen
+			echo '<form action="logout.php" method="POST">
+					<button type="submit" class="logoutbtn">Log Out</button>
+				  </form>';
+		} else {
+			// Benutzer ist nicht eingeloggt, Login-Button anzeigen
+			echo '<form class="container" action="login.php" method="POST">
+					<button type="submit" class="loginbtn">Log In</button>
+				  </form>';
+		}
 		?>
 
-		<form class="logout" action="logout.php" method="GET" id="logoutbtn">
-			<button type="submit" class="logoutbtn">Log Out</button>
-		</form>
-		<form class="container" action="login.php" id="loginbtn1" method="POST">
-    		<button type="submit" class="login">Log In</button>
-		</form>
 		<div id="article">
 			<main class="content">
 				<p><h4>Ihr wollt euren Liebsten ein schönes Essen bescheren, habt aber keine Ahnung, was ihr machen wollt?</h4></p>

@@ -20,7 +20,9 @@ if ($result->num_rows > 0) {
         // Login erfolgreich
         $_SESSION['userid'] = (int)$row['id'];
         $_SESSION['usrname'] = $username;
-        echo "Login erfolgreich! <a href='./index.php'>Zur Homepage</a>";
+        echo "Login erfolgreich!";
+        header("Location: index.php");
+        exit();
     } else {
         // Passwort ist falsch
         echo "Login fehlgeschlagen. <a href='./login.php'>Erneut versuchen</a>";
