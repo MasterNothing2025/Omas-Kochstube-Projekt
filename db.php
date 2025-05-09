@@ -9,6 +9,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Überprüfen, ob die Verbindung erfolgreich war
 if ($conn->connect_error) {
+    header("Location: index.php");
     die("Connection failed: " . $conn->connect_error);
 }
 ?>

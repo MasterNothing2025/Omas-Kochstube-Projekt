@@ -8,7 +8,7 @@
   	</head>
 	
 	<body>
-		<img src="./Oma's Kochstube Logo.png" alt = "Logo"><h1>Oma's Kochstube</h1> <blockquote>Jeder kann Kochen</blockquote>
+		<img src="./Oma's Kochstube Logo.png" alt = "Omas Logo"><h1>Oma's Kochstube</h1> <blockquote>Jeder kann Kochen</blockquote>
 			<nav>
 				<table>
 					<tr>
@@ -26,23 +26,16 @@
 				<q>Ideenreiche Rezepte für jeden Zweck!</q>
 			</hgroup>
 		</article>
-		<p>
+		
 		<?php
 		session_start();
-
-			if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {}
-			// Überprüfe, ob die Anfrage eine POST-Anfrage ist
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {}
-				// Benutzereingaben erfassen und validieren
-				$username = isset($_SESSION['usrname']) ? trim($_SESSION['usrname']) : '';
-				$hashedPasswort = isset($_SESSION['passw']) ? trim($_SESSION['passw']) : '';
 		?>
-	</p>
-		<form class="logoutbtn" action="index.php" method="GET" id="logoutbtn">
+
+		<form class="logout" action="index.php" method="GET" id="logoutbtn">
 			<button type="submit" class="logoutbtn">Log Out</button>
 		</form>
 		<form class="container" action="login.php" id="loginbtn1" method="POST">
-			<button type="submit" class="login">Log In</button>
+    		<button type="submit" class="login">Log In</button>
 		</form>
 		<div id="article">
 			<main class="content">

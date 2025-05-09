@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $passwortRepeat = $_POST['passw-repeat'];
 
     // Passwort hashen
-    $hashedPasswort = hash('sha256', $passwort) = $_POST['hashpassw'];
+    $hashedPasswort = hash('sha256', $passwort);
 
     if (empty($email) || empty($username) || empty($passwort)) {
         die("Alle Felder müssen ausgefüllt werden.");

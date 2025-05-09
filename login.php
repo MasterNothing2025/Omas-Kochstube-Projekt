@@ -8,11 +8,11 @@
 <?php
 session_start();
 ?>
-<form action="logindata.php" method="post">
+<form action="" method="post">
     <div id="id01" class="modals">
             <div class="container">
                 <label for="usrname" ><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" id="usrname" required>
+                <input type="text" placeholder="Enter Username" name="usrname" id="username" required>
         
                 <label for="passw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="passw" required>
@@ -24,6 +24,21 @@ session_start();
       </div> 
 </form>
 <?php 
+    var_dump($_POST);
+    if(!empty($_POST["usrname"])) {
+
+        // check for a valid login
+        echo'usrname nicht leer';
+        include "logindata.php";
+    }
+
+    // am i logged in?
+    if(!empty($_SESSION["userid"])) {
+        echo "umleitung";
+        header("Location:index.php");
+    }
+
+    $passwort = 'passw';
     $username = 'usrname';
     $hashedPasswort = hash('sha256', $passwort);
     $username = isset($_SESSION['usrname']) ? trim($_SESSION['usrname']) : '';
