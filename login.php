@@ -24,7 +24,6 @@ session_start();
       </div> 
 </form>
 <?php 
-    var_dump($_POST);
     if(!empty($_POST["usrname"])) {
 
         // check for a valid login

@@ -31,7 +31,7 @@
 		session_start();
 		?>
 
-		<form class="logout" action="index.php" method="GET" id="logoutbtn">
+		<form class="logout" action="logout.php" method="GET" id="logoutbtn">
 			<button type="submit" class="logoutbtn">Log Out</button>
 		</form>
 		<form class="container" action="login.php" id="loginbtn1" method="POST">
